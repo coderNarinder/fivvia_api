@@ -1,0 +1,34 @@
+<?php
+
+use Illuminate\Database\Migrations\Migration;
+use Illuminate\Database\Schema\Blueprint;
+use Illuminate\Support\Facades\Schema;
+
+class AddForeignKeysToCsvProductImportsTable extends Migration
+{
+    /**
+     * Run the migrations.
+     *
+     * @return void
+     */
+    public function up()
+    {
+        Schema::table('csv_product_imports', function (Blueprint $table) {
+            $table->foreign(['uploaded_by'])->references(['id'])->on('users')->onUpdate('NO ACTION')->onDelete('SET NULL');
+            $table->foreign(['vendor_id'])->references(['id'])->on('vendors')->onUpdate('NO ACTION')->onDelete('SET NULL');
+        });
+    }
+
+    /**
+     * Reverse the migrations.
+     *
+     * @return void
+     */
+    public function down()
+    {
+        Schema::table('csv_product_imports', function (Blueprint $table) {
+            $table->dropForeign('csv_product_imports_uploaded_by_foreign');
+            $table->dropForeign('csv_product_imports_vendor_id_foreign');
+        });
+    }
+}

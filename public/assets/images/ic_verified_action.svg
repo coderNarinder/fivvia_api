@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="20px" height="20px" viewBox="0 0 20 20" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <title>ic_verified</title>
+    <g id="Settings" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="Group-49" fill="#00D800">
+            <rect id="Rectangle-71-Copy" opacity="0.200000003" x="0" y="0" width="20" height="20" rx="10"></rect>
+            <path d="M14.7610805,7.61152638 L9.07086793,13.9967509 C8.68613415,14.4455275 8.03208673,14.4455275 7.64735296,13.9967509 L5.23891953,11.2529152 C4.91189581,10.8592516 4.91189581,10.2451362 5.29278225,9.85147259 C5.67751602,9.51685848 6.27770072,9.51685848 6.66243449,9.9065855 L8.35911044,11.8670305 L13.3375655,6.32424622 C13.7222992,5.93058256 14.3224839,5.87546965 14.7072177,6.26913331 C15.0881042,6.60374742 15.0881042,7.27691227 14.7610805,7.61152638 Z" id="Path" fill-rule="nonzero"></path>
+        </g>
+    </g>
+</svg>

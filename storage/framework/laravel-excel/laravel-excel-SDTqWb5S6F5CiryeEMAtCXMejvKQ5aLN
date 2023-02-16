@@ -1,0 +1,7 @@
+Handle,Title,Body (HTML),Published,Category,Option1 Name,Option1 Value,Option2 Name,Option2 Value,Option3 Name,Option3 Value,Variant SKU,Variant Price,Variant Quantity,Variant Compare At Price,Variant Taxable,Variant Barcode,Image Src,Image Position,Image Alt Text,Variant Image,Variant Cost Price,Status,Brand,Tax Category
+CL108,Car Cleaning,,TRUE,Cleaning & Disinfection,,,,,,,,25,100,23.99,,,,,,,50,published,,
+CL109,Bathroom Cleaning,,TRUE,Cleaning & Disinfection,,,,,,,,25,100,23.99,,,,,,,50,published,,
+CL110,Sofa & Carpet Cleaning,,TRUE,Cleaning & Disinfection,,,,,,,,25,100,23.99,,,,,,,50,published,,
+PC111,Bed bugs Control,,TRUE,Pest Control,,,,,,,,25,100,23.99,,,,,,,50,published,,
+PC112,Termite Control,,TRUE,Pest Control,,,,,,,,25,100,23.99,,,,,,,50,published,,
+PC113,Cockroaches Pest Control,,TRUE,Pest Control,,,,,,,,25,100,23.99,,,,,,,50,published,,

@@ -1,0 +1,5 @@
+Handle,Title,Body (HTML),Published,Category,Option1 Name,Option1 Value,Option2 Name,Option2 Value,Option3 Name,Option3 Value,Variant SKU,Variant Price,Variant Quantity,Variant Compare At Price,Variant Taxable,Variant Barcode,Image Src,Image Position,Image Alt Text,Variant Image,Variant Cost Price,Status,Brand,Tax Category
+EL620,Switchboard Replacement,,TRUE,Electrician Service,,,,,,,,25,100,23.99,,,,,,,50,published,,
+EL621,Chandelier Installation,,TRUE,Electrician Service,,,,,,,,25,100,23.99,,,,,,,50,published,,
+EL622,Double Battery Inverter Installation,,TRUE,Electrician Service,,,,,,,,25,100,23.99,,,,,,,50,published,,
+EL623,Door Bell Repair,,TRUE,Electrician Service,,,,,,,,25,100,23.99,,,,,,,50,published,,

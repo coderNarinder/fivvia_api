@@ -1,0 +1,46 @@
+{
+  "name": "multicaret/laravel-unifonic",
+  "description": " A library to integrate with Unifonic API to send SMS",
+  "keywords": [
+    "laravel",
+    "unifonic",
+    "sms",
+    "2FA",
+    "verify",
+    "number intelligence",
+    "tts",
+    "api"
+  ],
+  "require": {
+    "php": ">=7.1.0",
+    "ext-curl": "*"
+  },
+  "require-dev": {
+    "laravel/framework": ">=5.3",
+    "guzzlehttp/guzzle": "^6.2",
+    "vlucas/phpdotenv": "^2.2"
+  },
+  "license": "MIT",
+  "authors": [
+    {
+      "name": "Mohammad Kawsara",
+      "email": "mkwsra@gmail.com"
+    }
+  ],
+  "autoload": {
+    "psr-4": {
+      "Multicaret\\Unifonic\\": "src/"
+    }
+  },
+  "extra": {
+    "laravel": {
+      "providers": [
+        "Multicaret\\Unifonic\\UnifonicServiceProvider"
+      ],
+      "aliases": {
+        "Unifonic": "Multicaret\\Unifonic\\UnifonicFacade"
+      }
+    }
+  },
+  "minimum-stability": "dev"
+}

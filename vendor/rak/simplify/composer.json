@@ -1,0 +1,31 @@
+{
+    "name": "rak/simplify",
+    "description": "Rak Simplify Laravel Package",
+    "type": "library",
+    "keywords": ["Rak","Simplify payment gateway"],
+    "license": "MIT",
+    "homepage": "https://github.com/ioticsme/rak-simplify.git",
+    "authors": [
+        {
+            "name": "Ebrahim Nayakkan",
+            "email": "ebrahim@iotics.me",
+            "homepage": "https://www.linkedin.com/in/ebrahimnp/",
+            "role": "Developer"
+        },
+        {
+            "name": "Thaha AC",
+            "email": "thaha@iotics.me",
+            "homepage": "https://www.linkedin.com/in/thahaac/",
+            "role": "Developer"
+        }
+    ],
+    "minimum-stability": "dev",
+    "autoload": {
+        "psr-4": {
+            "Rak\\Simplify\\": "src/"
+        }
+    },
+    "require": {
+        "php": ">=7.2.0"
+    }
+}

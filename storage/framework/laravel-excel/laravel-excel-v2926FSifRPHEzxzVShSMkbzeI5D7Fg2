@@ -1,0 +1,2 @@
+Logo,Banner,Name,Description,Address,Dine_In,Takeaway,Delivery,Order_Prepare_Time (In minutes),"Auto_Reject_Time (In minutes, 0 for no rejection)",Order Min Amount,24*7 Availability,Commission Percent,Commission Fixed Per Order,Commission Monthly,24*7 Availability
+,,Glow Away,,"5231, Merivale Road,Stittsville",FALSE,FALSE,TRUE,25,0,200,TRUE,10,10,,TRUE

@@ -1,0 +1,38 @@
+{
+    "name": "yoco/yoco-php-laravel",
+    "type": "library",
+    "description": "Yoco PHP Library for Laravel",
+    "keywords": [ 
+        "yoco",
+        "payment processing",
+        "api",        
+        "laravel"
+    ],
+    "homepage": "https://developer.yoco.com",
+    "license": "mit",
+    "authors": [
+        {
+            "name": "Yoco and contributors",
+            "homepage": "http://developer.yoco.com",
+            "role": "Creator & Maintainer"
+        }
+    ],
+    "require": {
+        "php": ">=7.0",
+        "yoco/yoco-php": "0.1.0-beta"
+    },
+    "autoload": {
+        "psr-4": {
+            "Yoco\\Laravel\\": "src/Yoco/Laravel"
+        }
+    },
+    "extra": {
+        "laravel": {
+            "providers": [
+                "Yoco\\Laravel\\YocoServiceProvider"
+            ],
+            "aliases": {
+            }
+        }
+    }
+}

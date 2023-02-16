@@ -1,0 +1,5 @@
+Handle,Title,Body (HTML),Published,Category,Option1 Name,Option1 Value,Option2 Name,Option2 Value,Option3 Name,Option3 Value,Variant SKU,Variant Price,Variant Quantity,Variant Compare At Price,Variant Taxable,Variant Barcode,Image Src,Image Position,Image Alt Text,Variant Image,Variant Cost Price,Status,Brand,Tax Category
+AC100,Split Ac Service,,TRUE,AC Service,,,,,,,,25,100,23.99,,,,,,,50,published,,
+AC101,Window Ac Service,,TRUE,AC Service,,,,,,,,25,100,23.99,,,,,,,50,published,,
+AC102,Split Ac Installation,,TRUE,AC Service,,,,,,,,25,100,23.99,,,,,,,50,published,,
+AC103,Window Ac Installation,,TRUE,AC Service,,,,,,,,25,100,23.99,,,,,,,50,published,,

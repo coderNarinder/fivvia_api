@@ -1,0 +1,57 @@
+
+
+
+# MAIN DOMAIN (GOD PANEL) LOCALHOST:8000
+		http://localhost:8000/godpanel/login
+		Email : admin@gmail.com
+		Password : 123456789
+
+----------------------------------------------------------------------
+
+# CUSTOM DOMAIN (GOD PANEL) LOCALHOST:3000
+        
+        CLIENT DASHBOARD
+        http://localhost:3000/admin/login
+		Email : client@gmail.com
+		Password : 123456789
+
+		VENDOR DASHBOARD
+        http://localhost:3000/user/login
+		Email : vendor@gmail.com
+		Password : 123456789
+----------------------------------------------------------------------
+
+# CUSTOM DOMAIN (GOD PANEL) LOCALHOST:1000
+        
+        CLIENT DASHBOARD
+        http://localhost:1000/admin/login
+		Email : client1000@gmail.com
+		Password : 123456789
+
+		VENDOR DASHBOARD
+        http://localhost:3000/user/login
+		Email : vendor1000@gmail.com
+		Password : 123456789
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,36 @@
+{
+    "name": "pallares/laravel-nuxt",
+    "description": "Build a SPA with Laravel and Nuxt",
+    "keywords": [
+        "laravel",
+        "nuxt",
+        "vue",
+        "spa"
+    ],
+    "homepage": "https://github.com/skyrpex/laravel-nuxt",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Cristian Pallarés",
+            "email": "cristian@pallares.io",
+            "homepage": "https://pallares.io",
+            "role": "Developer"
+        }
+    ],
+    "require": {
+        "php": ">=7.0.0",
+        "laravel/framework": "5.5.*|5.6.*|5.7.*|5.8.*|^6.0|^7.0|^8.0"
+    },
+    "autoload": {
+        "psr-4": {
+            "Pallares\\LaravelNuxt\\": "src/"
+        }
+    },
+    "extra": {
+        "laravel": {
+            "providers": [
+                "Pallares\\LaravelNuxt\\LaravelNuxtServiceProvider"
+            ]
+        }
+    }
+}

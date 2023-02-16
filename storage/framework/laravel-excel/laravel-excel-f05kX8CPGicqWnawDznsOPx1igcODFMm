@@ -1,0 +1,7 @@
+Handle,Title,Body (HTML),Published,Category,Option1 Name,Option1 Value,Option2 Name,Option2 Value,Option3 Name,Option3 Value,Variant SKU,Variant Price,Variant Quantity,Variant Compare At Price,Variant Taxable,Variant Barcode,Image Src,Image Position,Image Alt Text,Variant Image,Variant Cost Price,Status,Brand,Tax Category
+DS101,Prawn Pie,,TRUE,Continental,,,,,,,,25,100,23.99,,,,,,,50,published,,
+DS102,Poached Pear Salad,,TRUE,Continental,,,,,,,,25,100,23.99,,,,,,,50,published,,
+DS103,Crispy Calamari Rings,,TRUE,Continental,,,,,,,,25,100,23.99,,,,,,,50,published,,
+DS104,Sweet Potato Pie,,TRUE,Continental,,,,,,,,25,100,23.99,,,,,,,50,published,,
+DS105,Chicken And Cheese Salad,,TRUE,Continental,,,,,,,,25,100,23.99,,,,,,,50,published,,
+DS106,Yorkshire Lamb Patties,,TRUE,Continental,,,,,,,,25,100,23.99,,,,,,,50,published,,

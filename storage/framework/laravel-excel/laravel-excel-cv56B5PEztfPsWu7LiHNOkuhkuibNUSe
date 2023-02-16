@@ -1,0 +1,6 @@
+Logo,Banner,Name,Description,Address,Dine_In,Takeaway,Delivery,Order_Prepare_Time (In minutes),"Auto_Reject_Time (In minutes, 0 for no rejection)",Order Min Amount,24*7 Availability,Commission Percent,Commission Fixed Per Order,Commission Monthly,24*7 Availability
+,,The Capital Grille,,"1253 Merivale Road,Stittsville",FALSE,FALSE,TRUE,25,0,200,TRUE,10,10,,TRUE
+,,Daniel,,"3663 90th Avenue,Brooks",FALSE,FALSE,TRUE,30,5,500,TRUE,15,15,,TRUE
+,,Chill & Grill,,"5019 James Street,Burnaby",FALSE,FALSE,TRUE,20,0,200,TRUE,20,10,,TRUE
+,,Carmine's Italian,,"3191 MacLaren Street,Ottawa",FALSE,FALSE,TRUE,15,2,200,TRUE,15,12,,TRUE
+,,Seasons 52,,"1010 11th Ave,Calgary",FALSE,FALSE,TRUE,20,0,300,TRUE,10,13,,TRUE

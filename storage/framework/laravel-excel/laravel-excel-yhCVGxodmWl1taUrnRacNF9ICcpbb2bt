@@ -1,0 +1,7 @@
+"Handle,Title,Body (HTML),Published,Category,Option1 Name,Option1 Value,Option2 Name,Option2 Value,Option3 Name,Option3 Value,Variant SKU,Variant Price,Variant Quantity,Variant Compare At Price,Variant Taxable,Variant Barcode,Image Src,Image Position,Image Alt Text,Variant Image,Variant Cost Price,Status,Brand,Tax Category"
+"S321,Israeli salad,,TRUE,Salad,,,,,,,,25,100,23.99,,,,,,,50,published,,"
+"S322,Waldorf salad,,TRUE,Salad,,,,,,,,25,100,23.99,,,,,,,50,published,,"
+"S323,Gado-gado,,TRUE,Salad,,,,,,,,25,100,23.99,,,,,,,50,published,,"
+"S324,Nicoise salad,,TRUE,Salad,,,,,,,,25,100,23.99,,,,,,,50,published,,"
+"S325,Dressed herring salad,,TRUE,Salad,,,,,,,,25,100,23.99,,,,,,,50,published,,"
+"S326,Larb,,TRUE,Salad,,,,,,,,25,100,23.99,,,,,,,50,published,,"

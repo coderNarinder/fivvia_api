@@ -1,0 +1,15 @@
+Logo,Banner,Name,Description,Address,Dine_In,Takeaway,Delivery,Order_Prepare_Time (In minutes),"Auto_Reject_Time (In minutes, 0 for no rejection)",Order Min Amount,24*7 Availability,Commission Percent,Commission Fixed Per Order,Commission Monthly,24*7 Availability
+,,KFC,,"764  Turkey Pen Road,Brooklyn",TRUE,TRUE,FALSE,12,2,100,TRUE,15,10,,TRUE
+,,Boston Barista,,"2090  Hummingbird Way,Needham",FALSE,TRUE,TRUE,14,3,200,FALSE,25,12,,FALSE
+,,Mugs Coffee,,"3058  Snowbird Lane,Omaha",TRUE,FALSE,FALSE,20,4,300,TRUE,15,13,,TRUE
+,,The Steam Room,,"3529  College View,Louisville",TRUE,TRUE,TRUE,25,0,200,TRUE,10,10,,TRUE
+,,Espresso Express,,"3005  Austin Secret Lane,West Valley City",TRUE,TRUE,TRUE,30,5,500,TRUE,15,15,,FALSE
+,,Chill & Grill,,4224  Settlers Lane,TRUE,TRUE,FALSE,20,0,200,FALSE,20,10,,FALSE
+,,Olive Garden,,"2185  Scenicview Drive,Midland",TRUE,TRUE,TRUE,15,2,200,TRUE,15,12,,TRUE
+,,The Busy Bean,,"2949  Franklin Street,ADAMS",TRUE,TRUE,FALSE,20,0,300,FALSE,10,13,,FALSE
+,,Fluid Coffee,,"4732  Keyser Ridge Road,Greensboro",TRUE,TRUE,FALSE,15,0,200,TRUE,13,13,,TRUE
+,,Brew Culture,,"2165  Breezewood Court,Girard",TRUE,TRUE,TRUE,20,3,500,FALSE,15,10,,FALSE
+,,Hot & Fresh,,"4311  Pritchard Court,Lake Benton",TRUE,TRUE,FALSE,15,0,400,TRUE,12,12,,TRUE
+,,Coffee Point,,"2603  Roosevelt Road,Abbyville",TRUE,TRUE,TRUE,10,5,200,FALSE,16,11,,FALSE
+,,Caffe KiLim,,"3072  Quiet Valley Lane,ROBBINS",TRUE,TRUE,TRUE,14,3,300,FALSE,25,12,,FALSE
+,,Third Rail,,2253  Stroop Hill Road,TRUE,TRUE,TRUE,12,2,100,TRUE,15,10,,TRUE

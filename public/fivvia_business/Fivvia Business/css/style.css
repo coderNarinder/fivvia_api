@@ -1,0 +1,1211 @@
+a,a:hover{
+    cursor: pointer;
+    text-decoration: none;
+}
+img{
+    width: auto;
+    max-width: 100%;
+}
+/* Custom Fonts Import start */
+@font-face {
+    font-family: 'Gilroy';
+    src: url('../fonts/Gilroy-Medium.eot');
+    src: url('../fonts/Gilroy-Medium.eot?#iefix') format('embedded-opentype'),
+        url('../fonts/Gilroy-Medium.woff2') format('woff2'),
+        url('../fonts/Gilroy-Medium.woff') format('woff'),
+        url('../fonts/Gilroy-Medium.ttf') format('truetype');
+    font-weight: 500;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Gilroy';
+    src: url('../fonts/Gilroy-Regular.eot');
+    src: url('../fonts/Gilroy-Regular.eot?#iefix') format('embedded-opentype'),
+        url('../fonts/Gilroy-Regular.woff2') format('woff2'),
+        url('../fonts/Gilroy-Regular.woff') format('woff'),
+        url('../fonts/Gilroy-Regular.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Gilroy';
+    src: url('../fonts/Gilroy-Heavy.eot');
+    src: url('../fonts/Gilroy-Heavy.eot?#iefix') format('embedded-opentype'),
+        url('../fonts/Gilroy-Heavy.woff2') format('woff2'),
+        url('../fonts/Gilroy-Heavy.woff') format('woff'),
+        url('../fonts/Gilroy-Heavy.ttf') format('truetype');
+    font-weight: 900;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Gilroy';
+    src: url('../fonts/Gilroy-Light.eot');
+    src: url('../fonts/Gilroy-Light.eot?#iefix') format('embedded-opentype'),
+        url('../fonts/Gilroy-Light.woff2') format('woff2'),
+        url('../fonts/Gilroy-Light.woff') format('woff'),
+        url('../fonts/Gilroy-Light.ttf') format('truetype');
+    font-weight: 300;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Gilroy';
+    src: url('../fonts/Gilroy-SemiBold.eot');
+    src: url('../fonts/Gilroy-SemiBold.eot?#iefix') format('embedded-opentype'),
+        url('../fonts/Gilroy-SemiBold.woff2') format('woff2'),
+        url('../fonts/Gilroy-SemiBold.woff') format('woff'),
+        url('../fonts/Gilroy-SemiBold.ttf') format('truetype');
+    font-weight: 600;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Gilroy';
+    src: url('../fonts/Gilroy-Black.eot');
+    src: url('../fonts/Gilroy-Black.eot?#iefix') format('embedded-opentype'),
+        url('../fonts/Gilroy-Black.woff2') format('woff2'),
+        url('../fonts/Gilroy-Black.woff') format('woff'),
+        url('../fonts/Gilroy-Black.ttf') format('truetype');
+    font-weight: 900;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Gilroy';
+    src: url('../fonts/Gilroy-ExtraBold.eot');
+    src: url('../fonts/Gilroy-ExtraBold.eot?#iefix') format('embedded-opentype'),
+        url('../fonts/Gilroy-ExtraBold.woff2') format('woff2'),
+        url('../fonts/Gilroy-ExtraBold.woff') format('woff'),
+        url('../fonts/Gilroy-ExtraBold.ttf') format('truetype');
+    font-weight: bold;
+    font-style: normal;
+    font-display: swap;
+}
+@font-face {
+    font-family: 'Gilroy';
+    src: url('../fonts/Gilroy-UltraLight.eot');
+    src: url('../fonts/Gilroy-UltraLight.eot?#iefix') format('embedded-opentype'),
+        url('../fonts/Gilroy-UltraLight.woff2') format('woff2'),
+        url('../fonts/Gilroy-UltraLight.woff') format('woff'),
+        url('../fonts/Gilroy-UltraLight.ttf') format('truetype');
+    font-weight: 200;
+    font-style: normal;
+    font-display: swap;
+}
+@font-face {
+    font-family: 'Gilroy';
+    src: url('../fonts/Gilroy-Thin.eot');
+    src: url('../fonts/Gilroy-Thin.eot?#iefix') format('embedded-opentype'),
+        url('../fonts/Gilroy-Thin.woff2') format('woff2'),
+        url('../fonts/Gilroy-Thin.woff') format('woff'),
+        url('../fonts/Gilroy-Thin.ttf') format('truetype');
+    font-weight: 100;
+    font-style: normal;
+    font-display: swap;
+}
+@font-face {
+    font-family: 'Gilroy';
+    src: url('../fonts/Gilroy-Bold.eot');
+    src: url('../fonts/Gilroy-Bold.eot?#iefix') format('embedded-opentype'),
+        url('../fonts/Gilroy-Bold.woff2') format('woff2'),
+        url('../fonts/Gilroy-Bold.woff') format('woff'),
+        url('../fonts/Gilroy-Bold.ttf') format('truetype');
+    font-weight: bold;
+    font-style: normal;
+    font-display: swap;
+}
+body *{
+    /* font-family: 'Gilroy', sans-serif; */
+}
+body p{
+    font-weight: normal;
+    font-style: normal;
+}
+/* Custom Fonts Import End */
+.business-header {
+    border-bottom: 1px solid #E7E7E7;
+    background-color: #FFFFFF;
+    padding: 15px 0;
+    margin-bottom: 30px;
+}
+.header-main{
+    width: 100%;
+    max-width: 1360px;
+    margin-inline: auto;
+}
+.step-content-wrapper {
+    width: 100%;
+    max-width: calc(100% - 240px);
+    padding: 0 0 0 50px;
+}
+.skip-later,.skip-later:hover {
+    opacity: 0.7;
+    color: #1A1A19;
+    font-family: Gilroy;
+    font-size: 16px;
+    font-weight: 500;
+    letter-spacing: 0;
+    line-height: 32px;
+    text-decoration: underline;
+}
+.business-wrapper {
+    background-color: #FAFAFB;
+    padding: 0 0 30px;
+}
+.business-content {
+    width: 100%;
+    max-width: 1360px;
+    margin: 0px auto;
+    align-items: flex-start;
+}
+/* Sidebar Design CSS Start */
+.business-steps {
+    /* background-color: #012D43; */
+    background-image: url(../images/ic_bg.svg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    max-width: 240px;
+    border-radius: 6px;
+    overflow: hidden;
+    width: 100%;
+}
+.business-steps .step-list {
+    list-style: none;
+    padding: 30px 20px;
+    margin: 0;
+    position: relative;
+}
+.step-link {
+    display: inline-block;
+    width: 100%;
+    position: relative;
+    z-index: 1;
+}
+.step-list .step .step-link{
+    padding-bottom: 30px;
+}
+.step-list .step:last-child .step-link{
+    padding-bottom: 0px;
+}
+.step-number {
+    background-color: #B3C0C6;
+    box-shadow: 0 2px 4px 0 rgb(0 0 0 / 16%);
+    display: inline-flex;
+    align-items: center;
+    width: 24px;
+    justify-content: center;
+    height: 24px;
+    color: #5E5959;
+    font-family: Gilroy;
+    font-size: 14px;
+    font-weight: bold;
+    letter-spacing: 0;
+    line-height: 17px;
+    border-radius: 50%;
+}
+.step-name {
+    color: #FFFFFF;
+    font-size: 14px;
+    font-weight: 500;
+    letter-spacing: 0;
+    line-height: 24px;
+    text-transform: capitalize;
+    display: inline-block;
+    margin-left: 8px;
+    opacity: 0.7;
+}
+.step-link.active .step-number {
+    background-color: #FBA919;
+}
+.step-link.active .step-name {
+    opacity: 1;
+}
+.step-link::after {
+    content: "";
+    position: absolute;
+    bottom: -4px;
+    left: 11px;
+    height: 100%;
+    width: 2px;
+    background-color: #FBA919;
+    z-index: -1;
+    opacity: 0;
+}
+.step-link.active::after {
+    opacity: 1;
+}
+/* Sidebar Design CSS End */
+/* Step Header DEsign CSS Start */
+.offer-header{
+    padding-right: 90px;
+}
+.step-header-content .offer-image {
+    width: auto;
+    max-width: 100%;
+    display: inline-block;
+    position: absolute;
+    top: 0;
+    right: -40px;
+}
+.step-title {
+    color: #1A1A19;
+    font-family: 'Gilroy', sans-serif;
+    font-size: 32px;
+    font-weight: bold;
+    letter-spacing: 0;
+    line-height: 32px;
+}
+.step-header-content p {
+    opacity: 0.7;
+    color: #1A1A19;
+    font-family: 'Gilroy', sans-serif;
+    font-size: 14px;
+    font-weight: 500;
+    letter-spacing: 0;
+    line-height: 32px;
+}
+.step-header-content .form-group{
+    position: relative;
+    max-width: 400px;
+}
+.step-header-content .form-group .form-control {
+    height: 48px;    
+    border: 1px solid #DDDDDD;
+    border-radius: 6px;
+    background-color: #FFFFFF;
+    width: 100%;
+}
+.form-group .search-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid #FBFBFB;
+    border-radius: 4px;
+    background-color: #B0D0FF;
+    height: 30px;
+    width: 30px;
+    padding: 0;
+    position: absolute;
+    right: 8px;
+    bottom: 9px;
+}
+.step-buttons .btn {
+    max-width: 124px;
+    border-radius: 6px;    
+    text-transform: capitalize;    
+    font-family: 'Gilroy', sans-serif;
+    font-size: 16px;
+    font-weight: 600;
+    letter-spacing: 0;
+    line-height: 19px;
+    text-align: center;
+    width: 100%;
+    padding: 10px 10px;
+}
+.step-buttons .btn-grey{
+    background-color: #DEDEDE;
+    color: #616161;
+}
+.step-buttons .btn-blue{
+    background-color: #4C91F9;
+    color: #FFF;
+    margin-left: 16px;
+}
+/* Step Header Design CSS End */
+/* Step One Content CSS Start */
+.selection-box .selection-content {
+    border: 1px solid #E2E2E2;
+    border-radius: 6px;
+    background-color: #F5F7FB;
+    box-shadow: inset 0 0 0 6px #ffffff;
+    position: relative;
+}
+.selection-box {
+    margin-top: 30px;
+}
+.selection-box .selection-content {
+    border: 2px solid #E2E2E2;
+    border-radius: 6px;
+    background-color: #F5F7FB;
+    box-shadow: inset 0 0 0 6px #fff;    
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+.category-step .selection-box .selection-content{
+    height: 144px;
+}.selection-box .form-group{
+    position: relative;
+    margin: 0;
+}
+
+.selection-box .form-group .check-control[type="checkbox"],
+.selection-box .form-group .check-control[type="radio"] {
+    position: absolute;
+    z-index: 1;
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+    cursor: pointer;
+}
+.selection-box .form-group .check-control[type="checkbox"]:checked ~ .selection-content,
+.selection-box .form-group .check-control[type="radio"]:checked ~ .selection-content {
+    border: 2px solid #FBA919;
+}
+.selected-cat {
+    position: absolute;
+    right: -7px;
+    top: -7px;
+    /* border: 2px solid #fff; */
+    border-radius: 50%;
+    opacity: 0;
+}
+.selection-box .form-group .check-control[type="checkbox"]:checked ~ .selection-content .selected-cat,
+.selection-box .form-group .check-control[type="radio"]:checked ~ .selection-content .selected-cat {
+    opacity: 1;
+}
+.selection-content p {
+    color: #282828;
+    font-family: 'Gilroy', sans-serif;
+    font-size: 16px;
+    font-weight: 500;
+    letter-spacing: 0;
+    line-height: 16px;
+    text-align: center;
+    text-transform: capitalize;
+    margin-top: 10px;
+    margin-bottom: 0;
+}
+.icon-circle {
+    height: 64px;
+    width: 64px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #E9EEF8;
+    border-radius: 50%;
+}
+/* Step One Content CSS End */
+/* Step Two Content CSS Start */
+.business-step .step-selection-content {
+    padding: 0px 30px 40px 30px;
+    border: 1px solid #E2E2E2;
+    border-radius: 6px;
+    background-color: #FFFFFF;
+}
+.business-inner-content h3 {
+    color: #1A1A19;
+    font-family: 'Gilroy', sans-serif;
+    font-size: 16px;
+    font-weight: bold;
+    letter-spacing: 0;
+    line-height: 24px;
+    text-align: center;
+    text-transform: capitalize;
+    margin-top: 12px;
+    margin-bottom: 0;
+}
+.business-inner-content p {
+    margin: 0;
+    opacity: 0.7;
+    color: #1A1A19;
+    font-family: 'Gilroy', sans-serif;
+    font-size: 13px;
+    font-weight: 500;
+    letter-spacing: 0;
+    line-height: 16px;
+}
+/* Step Two Content CSS End */
+/* Step Three Content CSS Start */
+.subscription-step .switch {
+    position: relative;
+    display: inline-block;
+    width: 170px;
+    height: 24px;
+    margin-left: 20px;
+}
+  
+  .subscription-step .switch input { 
+    opacity: 0;
+    width: 0;
+    height: 0;
+  }
+  
+  .subscription-step .slider {
+    position: absolute;
+    cursor: pointer;
+    top: 7px;
+    left: 50%;
+    right: 0;
+    bottom: 0;
+    background-color: #fff;
+    -webkit-transition: .4s;
+    transition: .4s;
+    border: 1px solid #4C91F9;
+    transform: translateX(-50%);
+}
+  
+.subscription-step .slider:before {
+    position: absolute;
+    content: "";
+    height: 10px;
+    width: 14px;
+    left: 2px;
+    bottom: 1px;
+    background-color: #4C91F9;
+    -webkit-transition: .4s;
+    transition: .4s;
+    border-radius: 5px;
+}
+  
+  .subscription-step input:checked + .slider {
+    /* background-color: #2196F3; */
+  }
+  
+  input:focus + .slider {
+    /* box-shadow: 0 0 1px #2196F3; */
+  }
+  
+  .subscription-step input:checked + .slider:before {
+    -webkit-transform: translateX(8px);
+    -ms-transform: translateX(8px);
+    transform: translateX(8px);
+  }
+  
+  /* Rounded sliders */
+  .subscription-step .slider.round {
+    border-radius: 7px;
+    width: 31px;
+    height: 15px;
+}
+  
+  .subscription-step .slider.round:before {
+    border-radius: 5px;
+  }
+
+  .price-switch-text {
+    display: flex;
+    align-items: center;
+}
+.price-switch-text  *{
+    margin: 0;
+}
+.monthly, .yearly {
+    position: absolute;
+    top: 0;
+}
+.monthly {
+    left: 0;
+}
+.yearly {
+    right: 7px;
+}
+.subscription-step input ~ .plan-text .monthly {
+    font-weight: bold;
+    text-transform: capitalize;
+    color: #4C91F9;
+}
+.yearly,
+.subscription-step input:checked ~ .plan-text .monthly {
+    font-weight: normal;
+    color: #1A1A19;
+    text-transform: capitalize;
+}
+.subscription-step input:checked ~ .plan-text .yearly {
+    font-weight: bold;
+    color: #4C91F9;
+}
+.trial-btn {
+    border-radius: 12px;
+    background-color: #4C91F9;
+    padding: 17px 20px;
+    max-width: 264px;
+    width: 100%;
+    margin-top: 24px;
+    color: #FFFFFF;
+    font-family: 'Gilroy', sans-serif;
+    font-size: 16px;
+    font-weight: bold;
+    letter-spacing: 0;
+    line-height: 19px;
+    text-align: center;
+    transition: all .4s;
+}
+.trial-btn:hover,.trial-btn:active,.trial-btn:focus{
+    opacity: 0.9;
+    color: #fff;
+}
+.subscription-step .selection-box .selection-content {
+    padding: 20px;
+    box-shadow: 0 4px 32px 0 rgb(0 0 0 / 16%);
+}
+.plan-name {
+    color: #000000;
+    font-family: 'Gilroy', sans-serif;
+    font-size: 16px;
+    font-weight: bold;
+    letter-spacing: 0;
+    line-height: 20px;
+    text-align: center;
+    text-transform: capitalize;
+}
+.selection-content .ideal-for {
+    opacity: 0.7;
+    color: #000000;
+    font-family: 'Gilroy', sans-serif;
+    font-size: 12px;
+    font-weight: 500;
+    letter-spacing: 0;
+    line-height: 21.12px;
+    text-transform: unset;
+    margin: 0;
+}
+.plan-price h2 strong {
+    color: #000000;
+    font-family: 'Gilroy', sans-serif;
+    font-size: 42px;
+    font-weight: 800;
+    letter-spacing: 0;
+    line-height: 51px;
+    text-align: center;
+}
+.plan-price h2 span {
+    opacity: 0.6;
+    color: #000000;
+    font-family: 'Gilroy', sans-serif;
+    font-size: 12.32px;
+    font-weight: 600;
+    letter-spacing: 0;
+    line-height: 15px;
+}
+.selection-content .plan-detail p {
+    color: #666666;
+    font-family: 'Gilroy', sans-serif;
+    font-size: 12px;
+    font-weight: 600;
+    letter-spacing: 0;
+    line-height: 14.08px;
+    text-align: center;
+    text-transform: unset;
+    margin: 0;
+}
+.plan-price h2 {
+    margin: 0;
+}
+.plan-detail {
+    opacity: 0.6;
+    border-radius: 7px;
+    background-color: #D8D8D8;
+    padding: 10px 20px;
+    margin: 15px 0;
+}
+.selection-content .plan-price p {
+    margin: 0;
+    color: #2C93FF;
+    font-family: 'Gilroy', sans-serif;
+    font-size: 11.44px;
+    font-weight: 500;
+    letter-spacing: 0;
+    line-height: 14px;
+    text-transform: unset;
+}
+.selection-content .need-for p {
+    color: #000000;
+    font-family: 'Gilroy', sans-serif;
+    font-size: 12px;
+    font-weight: 500;
+    letter-spacing: 0;
+    line-height: 14px;
+    margin: 0;
+}
+.need-for {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+}
+.need-for p {
+    text-align: left;
+    max-width: 160px;
+}
+.total-seats {
+    border: 1px solid #979797;
+    opacity: 0.5;
+    border-radius: 5px;
+    padding: 7px 31px;
+    color: #000000;
+    font-family: 'Gilroy', sans-serif;
+    font-size: 14.08px;
+    font-weight: 500;
+    letter-spacing: 0;
+    line-height: 16px;
+}
+.selection-content .plan-detail p span {
+    color: #2C93FF;
+}
+.pricing-table {
+    margin-top: 40px;
+}
+.pricing-table thead th{
+    background-color: #F7F7F7;
+}
+.pricing-table thead th {
+    background-color: #F7F7F7;
+    color: #000000;
+    font-family: 'Gilroy', sans-serif;
+    font-size: 18px;
+    font-weight: bold;
+    letter-spacing: 0;
+    line-height: 31px;
+    text-transform: capitalize;
+}
+.pricing-table td, .pricing-table th {
+    padding: 0.75rem 1.5rem;
+}
+.pricing-table thead th + th {
+    text-align: center;
+}
+.pricing-table tbody tr td {
+    background-color: #fff;
+    vertical-align: middle;
+}
+.pricing-table tbody tr td h3 {
+    color: #1A1A19;
+    font-family: 'Gilroy', sans-serif;
+    font-size: 16px;
+    font-weight: 600;
+    letter-spacing: 0;
+    line-height: 28px;
+    margin: 0;
+}
+.pricing-table tbody tr td p {
+    opacity: 0.6;
+    color: #1A1A19;
+    font-family: 'Gilroy', sans-serif;
+    font-size: 13px;
+    font-weight: 500;
+    letter-spacing: 0;
+    line-height: 20px;
+    margin: 0;
+}
+.price-info-content {
+    padding: 15px 0;
+    border-bottom: 1px solid #d9d7d7;
+    margin-bottom: 30px;
+}
+.payment-content h5 {
+    color: #1A1A19;
+    font-family: 'Gilroy', sans-serif;
+    font-size: 12px;
+    font-weight: bold;
+    letter-spacing: 0;
+    line-height: 14px;
+}
+.payment-content p {
+    opacity: 0.7;
+    color: #1A1A19;
+    font-family: 'Gilroy', sans-serif;
+    font-size: 12px;
+    font-weight: 500;
+    letter-spacing: 0;
+    line-height: 14px;
+}
+.payment-opt {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    align-items: center;
+}
+.payment-opt .payment-list + .payment-list{
+    margin-left: 10px;
+}
+  /* Step Three Content CSS End */
+/* Step Four Content CSS Start */
+.business-detail-step .step-selection-content,.bank-account-step .step-selection-content {
+    padding: 30px 30px 15px 30px;
+    border: 1px solid #E2E2E2;
+    border-radius: 6px;
+    background-color: #FFF;
+    margin-top: 30px;
+}
+.step-form label{
+  opacity: 0.5;
+  color: #1A1A19;
+  font-family: 'Gilroy', sans-serif;
+  font-size: 12px;
+  font-weight: bold;
+  letter-spacing: 0;
+  line-height: 16px;
+  width: 100%;
+}
+.step-form .form-control {
+    border: 1px solid #D9D9D9;
+    border-radius: 6px;
+    background-color: #FFFFFF;
+}
+.step-form .form-control:hover,
+.step-form .form-control:active,
+.step-form .form-control:focus {
+    box-shadow: unset;
+    outline: 0 none;
+}
+.image-upload {    
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto;
+}
+.business-detail-step .image-upload{
+    margin-left: auto;
+    height: 354px;
+    width: 354px;
+    opacity: 0.3;
+    border-radius: 50%;
+    background-color: #DEDEDE;
+}
+.change-label {
+    text-align: center;
+    margin-top: 10px;
+}
+.change-label input {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    max-width: 100px;
+    top: 8px;
+    opacity: 0;
+    cursor: pointer;
+}
+.business-detail-step .inner-image {
+    height: 288px;
+    width: 288px;
+    opacity: 0.3;
+    border-radius: 50%;
+    background-color: #817c7c;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.image-label {
+    max-width: 354px;
+    width: 100%;
+    margin-left: auto;
+    text-align: center;
+    margin-top: 15px;
+    color: #4C91F9;
+    font-family: 'Gilroy', sans-serif;
+    font-size: 16px;
+    font-weight: bold;
+    letter-spacing: 0;
+    line-height: 19px;
+    text-transform: capitalize;
+}
+.bank-title {
+    color: #1A1A19;
+    font-family: 'Gilroy', sans-serif;
+    font-size: 24px;
+    font-weight: bold;
+    letter-spacing: 0;
+    line-height: 30px;
+    text-align: center;
+    margin-top: 30px;
+}
+.bank-link-text p {
+    margin-inline: auto;
+    max-width: 365px;
+    opacity: 0.7;
+    color: #1A1A19;
+    font-family: 'Gilroy', sans-serif;
+    font-size: 13px;
+    font-weight: 500;
+    letter-spacing: 0;
+    line-height: 20px;
+}
+/* Step Three Content CSS End */
+/* Step Eight Design CSS Start */
+/* The container */
+.radio-box {
+    padding: 20px;
+    border: 1px solid #E2E2E2;
+    border-radius: 6px;
+    background-color: #FFFFFF;
+    margin-bottom: 24px;
+}
+.radio-custom {
+    display: block;
+    position: relative;
+    padding-left: 35px;
+    margin-bottom: 12px;
+    cursor: pointer;
+    font-size: 22px;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+  }  
+  /* Hide the browser's default radio button */
+  .radio-custom input {
+    position: absolute;
+    opacity: 0;
+    cursor: pointer;
+  }  
+  /* Create a custom radio button */
+.radio-custom .checkmark {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 20px;
+    width: 20px;
+    border: 1.5px solid #FFCE2F;
+    border-radius: 50%;
+}  
+/* On mouse-over, add a grey background color */
+.radio-custom:hover input ~ .checkmark {
+    /* background-color: #FFCE2F; */
+}
+  
+/* When the radio button is checked, add a blue background */
+.radio-custom input:checked ~ .checkmark {
+    background-color: #FFCE2F;
+}  
+/* Create the indicator (the dot/circle - hidden when not checked) */
+.radio-custom .checkmark:after {
+    content: "";
+    position: absolute;
+    display: none;
+}
+/* Show the indicator (dot/circle) when checked */
+.radio-custom input:checked ~ .checkmark:after {
+    display: block;
+}
+/* Style the indicator (dot/circle) */
+.radio-custom .checkmark:after {
+    top: 4px;
+    left: 4px;
+    width: 9px;
+    height: 9px;
+    border-radius: 50%;
+    background: #fff;
+}
+.group-inline .radio-custom {
+    color: #1A1A19;
+    font-family: Gilroy;
+    font-size: 18px;
+    font-weight: 500;
+    letter-spacing: 0;
+    line-height: 24px;
+}
+.radio-box .url-group {
+    border-radius: 6px;
+    background-color: #F5F7FB;
+    margin: 0;
+    padding: 10px 20px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-left: 35px;
+}
+.circle-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    align-items: center;
+    margin-right: 15px;
+}
+.grey-circle {
+    height: 16px;
+    width: 16px;
+    background-color: #D8D8D8;
+    border-radius: 50%;
+    margin-right: 10px;
+}
+.url-group .form-control {
+    color: #122222;
+}
+.form-group .form-control:hover,
+.form-group .form-control:active,
+.form-group .form-control:focus {
+    outline: 0 none;
+    box-shadow: unset;
+}
+.step-url {
+    min-height: 300px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    max-width: 890px;
+    margin-inline: auto;
+}
+.step-url a {
+    color: #4C91F9;
+    font-family: Gilroy;
+    font-size: 24px;
+    font-weight: 900;
+    letter-spacing: 0;
+    line-height: 30px;
+    text-align: center;
+}
+.domain-content {
+    border: 1px solid #E2E2E2;
+    border-radius: 6px;
+    background-color: #FFFFFF;
+    padding: 66px 30px 15px;
+    max-width: 788px;
+    margin-inline: auto;
+    margin-top: 150px;
+    text-align: center;
+}
+.domain-content .form-group {
+    position: relative;
+    max-width: 480px;
+    margin-inline: auto;
+}
+.domain-content .form-group .form-control {
+    height: 48px;    
+    border: 1px solid #DDDDDD;
+    border-radius: 6px;
+    background-color: #FFFFFF;
+    width: 100%;
+}
+.domain-avalability a {
+    color: #1A1A19;
+    font-family: Gilroy;
+    font-size: 16px;
+    font-weight: 500;
+    letter-spacing: 0;
+    line-height: 40px;
+}
+.domain-avalability p a {
+    color: #FBA919;
+    font-weight: 600;
+    margin-left: 10px;
+}
+.domain-avalability p .fa {
+    color: #4C91F9;
+}
+   /* Step Eight Design CSS End */
+/* Payment Steps Pills Design Start */
+.domain-confirmed .fade {
+    opacity: 1;
+}
+.payment-tabs{
+    margin-top: 40px;
+}
+.payment-pills {
+    border-radius: 6px;
+    background-color: #F5F7FB;
+    justify-content: center;
+}
+.payment-pills li a {
+    color: #1A1A19;
+    font-family: Gilroy;
+    font-size: 16px;
+    font-weight: bold;
+    letter-spacing: 0;
+    line-height: 24px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: relative;
+    padding: 20px 0;
+}
+.pay-pills {
+    width: 100%;
+    justify-content: space-between;
+    max-width: 660px;
+    margin-inline: auto;
+}
+.pills-circle {
+    display: inline-block;
+    height: 24px;
+    width: 24px;
+    background-color: #D8D8D8;
+    border-radius: 50%;
+    margin-bottom: 5px;
+}
+.payment-table tfoot {
+    border-top: 1px solid #DFDFDF;
+}
+.payment-wrapper {
+    border: 1px solid #E2E2E2;
+    border-radius: 6px;
+    background-color: #FFFFFF;
+    padding: 24px;
+}
+.payment-title {
+    color: #1A1A19;
+    font-family: Gilroy;
+    font-size: 24px;
+    font-weight: bold;
+    letter-spacing: 0;
+    line-height: 32px;
+    line-height: 20px;
+    margin: 0;
+}
+.payment-wrapper p {
+    opacity: 0.6;
+    color: #1A1A19;
+    font-family: Gilroy;
+    font-size: 14px;
+    font-weight: 500;
+    letter-spacing: 0;
+    line-height: 32px;
+    margin: 0;
+}
+.group-inline .radio-custom span.label-text {
+    min-width: 140px;
+    display: inline-block;
+}
+.content-height {
+    min-height: 380px;
+}
+.payment-wrapper .group-inline .radio-custom {
+    font-size: 14px;
+    opacity: 1;
+}
+.payment-table thead {
+    display: none;
+}
+.payment-table tbody tr td {
+    color: #1A1A19;
+    font-family: Gilroy;
+    font-size: 16px;
+    font-weight: 500;
+    letter-spacing: 0;
+    line-height: 24px;
+}
+.payment-table tr td {
+    text-transform: capitalize;
+    padding-inline: 0;
+}
+.payment-table tr td + td {
+    text-align: right;
+}
+.payment-table tfoot tr td {
+    font-size: 20px;    
+}
+.payment-wrapper label {
+    opacity: 0.5;
+    color: #1A1A19;
+    font-family: Gilroy;
+    font-size: 12px;
+    font-weight: bold;
+    letter-spacing: 0;
+    line-height: 16px;
+}
+.payment-wrapper .form-control {
+    height: 40px;
+    border: 1px solid #D9D9D9;
+    border-radius: 6px;
+    background-color: #FFFFFF;
+}
+.payment-wrapper .pvt-reg-text p {
+    font-size: 12px;
+    margin-left: 30px;
+}
+.payment-wrapper + .payment-wrapper {
+    margin-top: 30px;
+}
+.plan-features {
+    padding: 0;
+    margin: 0;
+    list-style: none;
+}
+.feature-list {
+    position: relative;
+    padding-left: 20px;
+    color: #1A1A19;
+    font-family: Gilroy;
+    font-size: 13px;
+    font-weight: 500;
+    letter-spacing: 0;
+    line-height: 24px;
+}
+.plan-features .feature-list:first-child {
+    margin-top: 20px;
+}
+.feature-list img {
+    position: absolute;
+    left: 0;
+    max-width: 15px;
+    top: 5px;
+}
+.payment-wrapper .nav-pills a {
+    border: 1px solid #4C91F9;
+    border-radius: 4px;
+    padding: 4px 12px;
+    display: inline-block;
+    width: 100%;
+    min-width: 130px;
+    text-align: center;
+    text-transform: capitalize;
+    color: #4C91F9;
+    font-family: Gilroy;
+    font-size: 12px;
+    font-weight: 500;
+    letter-spacing: 0;
+    line-height: 22px;
+    transition: all .4s;
+}
+.payment-wrapper .nav-pills li + li  a {
+    margin-left: 15px;
+}
+.payment-wrapper .nav-pills a:hover,.payment-wrapper .nav-pills a.active {
+    background-color: #4C91F9;
+    color: #fff;
+}
+.payment-wrapper .nav-pills {
+    margin-bottom: 20px;
+}
+.payment-card {
+    padding: 0;
+    margin: 0;
+    list-style: none;
+    display: flex;
+    align-items: center;
+    margin-bottom: 20px;
+}
+.payment-card img{
+    max-width: 24px;
+}
+.payment-card .card-list + .card-list {
+    margin-left: 10px;
+}
+.payment-pills li a::before {
+    content: "";
+    position: absolute;
+    height: 4px;
+    width: 220px;
+    background-color: #D8D8D8;
+    right: 22px;
+    top: 30px;
+}
+.payment-pills li:first-child a::before{
+    display: none;
+}
+.payment-pills li a.active .pills-circle{
+    background-color: #FFCE2F;
+    box-shadow: 0 2px 4px 0 rgba(0,0,0,0.16);
+    z-index: 1;
+}
+.payment-pills li a.active::before {
+    background-color: #FFCE2F;
+    z-index: 1;
+}
+.navbar-brand span {
+    font-size: 22px;
+    font-weight: bold;
+}
+/* Payment Steps Pills Design End */
