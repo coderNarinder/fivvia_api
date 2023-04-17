@@ -1,4 +1,5 @@
-<?php namespace App\Http\Middleware;
+<?php 
+namespace App\Http\Middleware;
 
 use Closure;
 
@@ -15,7 +16,7 @@ class Cors {
     {
 
         header("Access-Control-Allow-Origin: *");
-
+header('Access-Control-Allow-Origin: http://localhost:4200');
         // ALLOW OPTIONS METHOD
         $headers = [
             'Access-Control-Allow-Methods'=> 'POST, GET, OPTIONS, PUT, DELETE',

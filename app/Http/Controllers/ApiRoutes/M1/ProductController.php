@@ -6,9 +6,12 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\Vendor;
 use App\Models\Product;
+use App\Models\ProductFaq;
+use App\Models\ProductFaqTranslation;
 use App\Http\Controllers\ApiRoutes\M1\BaseController; 
 use Illuminate\Support\Str;
 use DB;
+ 
 class ProductController extends BaseController
 {
   
@@ -30,16 +33,16 @@ class ProductController extends BaseController
            $pending = \DB::table('vendors')->select(['id','name','slug', 'status','desc','address','logo'])
            ->where('client_id',$this->client_id)->where('status',0)->count();
            $users->where('status',$request->status);
-         return response()->json([
-             'data' => [
-                 'count' => $u->where('status',$request->status)->count(),
-                 'approved_count' => $approved,
-                 'blocked_count' => $blocked,
-                 'pending_count' => $pending,
-                 'listing' => $users->skip($skip)->limit($limit)->get(),
-                 'client'=>$this->client_head
-             ]
-         ]);
+           return response()->json([
+               'data' => [
+                   'count' => $u->where('status',$request->status)->count(),
+                   'approved_count' => $approved,
+                   'blocked_count' => $blocked,
+                   'pending_count' => $pending,
+                   'listing' => $users->skip($skip)->limit($limit)->get(),
+                   'client'=>$this->client_head
+               ]
+           ]);
   }
 
 #------------------------------------------------------------------------------------------------
@@ -65,20 +68,21 @@ class ProductController extends BaseController
          'actual_price' => 'required',
          'price' => 'required',
          'remarks' => 'required',
-         'pickup_latitude' => 'required',
-         'pickup_longitude' => 'required',
-         'pickup_pincode' => 'required',
-         'pickup_location' => 'required',
+         // 'pickup_latitude' => 'required',
+         // 'pickup_longitude' => 'required',
+         // 'pickup_pincode' => 'required',
+         // 'pickup_location' => 'required',
          'tags' => 'required',
          'amenities' => 'required',
          'status' => 'required',
          'is_featured' => 'required',
          'is_new' => 'required',
          'image' => 'required',
+         'pickup_address'=> 'required'
       ]);
 
       if($v->fails()){
-         $data = ['erros'=> $v->errors(),'status'=> 2];
+         $data = ['errors'=> $v->errors(),'status'=> 2];
       }else{
 
            $v = Vendor::where('slug', $slug)->where('client_id',$this->client_id);
@@ -100,16 +104,15 @@ class ProductController extends BaseController
           $p->description = $request->description;
           $p->actual_price = $request->actual_price;
           $p->price = $request->price;
-          $p->pickup_latitude = $request->pickup_latitude;
-          $p->pickup_longitude = $request->pickup_longitude;
-          $p->pickup_pincode = $request->pickup_pincode;
-          $p->pickup_location = $request->pickup_location;
-          $p->pickup_country_id = $request->country_id;
-          $p->pickup_city_id = $request->city_id;
-          $p->pickup_state_id = $request->state_id;
+          $p->child_price = $request->child_price;
+          $p->people_limit = $request->people_limit;
+          $p->tour_for = $request->tour_for;
+       
           $p->tags = json_encode($request->tags);
           $p->amenities = json_encode($request->amenities);
           $p->remarks = json_encode($request->remarks);
+          $p->pickup_address = json_encode($request->pickup_address);
+          $p->business_type_id = $request->business_type_id;
           $p->category_id = $request->category_id;
           $p->is_live = $request->status;
           $p->is_featured = !empty($request->is_featured) ? 1 : 0;
@@ -133,13 +136,13 @@ class ProductController extends BaseController
             }
              
 
-            // foreach ($request->categories as $cate) {
-            //         $product_category = new \App\Models\ProductCategory();
-            //         $product_category->product_id = $p->id;
-            //         $product_category->category_id = $cate;
-            //         $product_category->client_id = $this->client_id;
-            //         $product_category->save();
-            // }
+            foreach ($request->pickup_address as $cate) {
+                    $product_category = new \App\Models\ProductAddress();
+                    $product_category->product_id = $p->id;
+                    $product_category->address_id = $cate;
+                    $product_category->client_id = $this->client_id;
+                    $product_category->save();
+            }
 
             foreach ($request->tags as $tag) {
                     $product_tag = new \App\Models\ProductTag;
@@ -149,6 +152,14 @@ class ProductController extends BaseController
                     $product_tag->save();
             }
 
+            // foreach ($request->business_types as $business_type_id) {
+            //         $product_tag = new \App\Models\ProductBusinessType;
+            //         $product_tag->product_id = $p->id;
+            //         $product_tag->business_type_id = $business_type_id;
+            //         $product_tag->client_id = $this->client_id;
+            //         $product_tag->save();
+            // }
+
             foreach ($request->amenities as $tag) {
                     $product_tag = new \App\Models\ProductAmenity;
                     $product_tag->product_id = $p->id;
@@ -156,6 +167,8 @@ class ProductController extends BaseController
                     $product_tag->client_id = $this->client_id;
                     $product_tag->save();
             }
+
+
             $trans = new \App\Models\ProductTranslation();
             $trans->product_id = $p->id;
             $trans->client_id = $this->client_id;
@@ -206,10 +219,7 @@ class ProductController extends BaseController
          'actual_price' => 'required',
          'price' => 'required',
          'remarks' => 'required',
-         'pickup_latitude' => 'required',
-         'pickup_longitude' => 'required',
-         'pickup_pincode' => 'required',
-         'pickup_location' => 'required',
+         'pickup_address' => 'required', 
          'tags' => 'required',
          'amenities' => 'required',
          'status' => 'required',
@@ -238,22 +248,19 @@ class ProductController extends BaseController
           $p->description = $request->description;
           $p->actual_price = $request->actual_price;
           $p->price = $request->price;
-          $p->pickup_latitude = $request->pickup_latitude;
-          $p->pickup_longitude = $request->pickup_longitude;
-          $p->pickup_pincode = $request->pickup_pincode;
-          $p->pickup_location = $request->pickup_location;
-          $p->pickup_country_id = $request->country_id;
-          $p->pickup_city_id = $request->city_id;
-          $p->pickup_state_id = $request->state_id;
           $p->tags = json_encode($request->tags);
           $p->amenities = json_encode($request->amenities);
           $p->remarks = json_encode($request->remarks);
+          $p->pickup_address = json_encode($request->pickup_address);
           $p->category_id = $request->category_id;
           $p->is_live = $request->status;
           $p->is_featured = !empty($request->is_featured) ? 1 : 0;
           $p->is_new = !empty($request->is_new) ? $request->is_new : 0;
           $p->business_type =  $this->client_head->business_category_type;
-          
+          $p->business_type_id = $request->business_type_id;
+          $p->child_price = $request->child_price;
+          $p->people_limit = $request->people_limit;
+          $p->tour_for = $request->tour_for;
          if($p->save()){
 
            $img = \App\Models\VendorMedia::where('vendor_id',$p->vendor_id)
@@ -274,6 +281,23 @@ class ProductController extends BaseController
               }
               }
             }
+
+           // \App\Models\ProductBusinessType::where('product_id',$p->id)->delete();
+           // foreach ($request->business_types as $business_type_id) {
+           //          $product_tag = new \App\Models\ProductBusinessType;
+           //          $product_tag->product_id = $p->id;
+           //          $product_tag->business_type_id = $business_type_id;
+           //          $product_tag->client_id = $this->client_id;
+           //          $product_tag->save();
+           //  }
+            \App\Models\ProductAddress::where('product_id',$p->id)->delete();
+             foreach ($request->pickup_address as $cate) {
+                    $product_category = new \App\Models\ProductAddress();
+                    $product_category->product_id = $p->id;
+                    $product_category->address_id = $cate;
+                    $product_category->client_id = $this->client_id;
+                    $product_category->save();
+             }
              
  
             \App\Models\ProductTag::where('product_id',$p->id)->delete();
@@ -419,6 +443,101 @@ public function getProductDetails(Request $request,$slug)
 #------------------------------------------------------------------------------------------------
 # getVendors 
 #------------------------------------------------------------------------------------------------
+  public function faqStore(Request $request,$slug){
+        try {
+              $product = Product::where('url_slug',$slug)->first();
+              DB::beginTransaction();
+              $product_faq = new ProductFaq();
+              $product_faq->product_id = $request->product_id;
+              $product_faq->save();
+              $language_id = $request->language_id;
+          
+              $this->faqsTranslation($product_faq->id,$request);
+              $data = ['message'=> 'Product added successfully!','status'=> 1];
+              DB::commit();
+         }catch (Exception $e) {
+             DB::rollback();
+             $data = ['message'=> $e->getMessage(),'status'=> 0];
+         }
+         return response()->json($data);
+    }
+
+#------------------------------------------------------------------------------------------------
+# getVendors 
+#------------------------------------------------------------------------------------------------
+  public function faqEdit(Request $request,$slug,$id){
+       $product = Product::where('url_slug',$slug)->first();
+       $product_faqs = ProductFaq::with('primary')->where('product_id',$product->id)->where('id',$id)->first();
+
+        $data = [
+            'message'=> 'Product Faqs loaded successfully!',
+            'status'=> 1,
+            'data' => [
+               'listing' => $product_faqs
+            ]
+        ];
+       return response()->json($data);
+ }
+
+#------------------------------------------------------------------------------------------------
+# getVendors 
+#------------------------------------------------------------------------------------------------
+  public function faqUpdate(Request $request,$slug,$id){
+        try {
+              $product = Product::where('url_slug',$slug)->first();
+              DB::beginTransaction();
+              $product_faq = ProductFaq::find($id);
+              $this->faqsTranslation($product_faq->id,$request);
+              $data = ['message'=> 'Product updated successfully!','status'=> 1];
+              DB::commit();
+         }catch (Exception $e) {
+              DB::rollback();
+              $data = ['message'=> $e->getMessage(),'status'=> 0];
+         }
+         return response()->json($data);
+    }
+
+
+
+    public function faqsTranslation($id,$request)
+    {
+          $faqs = ProductFaqTranslation::where('product_faq_id',$id)->where('language_id',$request->language_id);
+          $ProductFaqTranslation = $faqs->count() > 0 ? $faqs->first() : new ProductFaqTranslation();
+          $ProductFaqTranslation->question = $request->question;
+          $ProductFaqTranslation->answer = $request->answer;
+          $ProductFaqTranslation->language_id = $request->language_id;
+          $ProductFaqTranslation->product_faq_id = $id;
+          $ProductFaqTranslation->save();
+    }
+
+
+    public function faqs_listing($slug)
+    {
+       $product = Product::where('url_slug',$slug)->first();
+       $product_faqs = ProductFaq::with('primary')->where('product_id',$product->id)->get();
+
+        $data = [
+            'message'=> 'Product Faqs loaded successfully!',
+            'status'=> 1,
+            'data' => [
+               'listing' => $product_faqs
+            ]
+        ];
+       return response()->json($data);
+    }
+
+
+    public function deleteFaqs($slug,$id)
+    {
+       $product = Product::where('url_slug',$slug)->first();
+        if(ProductFaq:: where('product_id',$product->id)->where('id',$id)->count() > 0){
+           ProductFaq:: where('product_id',$product->id)->where('id',$id)->delete();
+           $data = ['message'=> 'Vendor deleted successfully!','status'=> 1];
+        }else{
+          $data = ['message'=> 'Something wrong!','status'=> 0];
+        }
+        return response()->json($data);
+    }
 
   
 }

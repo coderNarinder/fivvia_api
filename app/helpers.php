@@ -210,18 +210,18 @@ function getPackageFeaturesAll($duration){
     $Standard = \App\Models\SubscriptionPackages::where('duration',$duration)->where('type','Standard')->first();
     $Advance = \App\Models\SubscriptionPackages::where('duration',$duration)->where('type','Advance')->first();
  return [
-    'social-media-posts' => getPackageFeature('social-media-posts',$Basic,$Standard,$Advance,$duration),
-    'stories' => getPackageFeature('stories',$Basic,$Standard,$Advance,$duration),
-    'zash' => getPackageFeature('zash',$Basic,$Standard,$Advance,$duration),
-    'events' => getPackageFeature('events',$Basic,$Standard,$Advance,$duration),
-    'groups' => getPackageFeature('groups',$Basic,$Standard,$Advance,$duration),
-    'channels' => getPackageFeature('channels',$Basic,$Standard,$Advance,$duration),
-    'chat' => getPackageFeature('chat',$Basic,$Standard,$Advance,$duration),
-    'payment-gateways' => getPackageFeature('payment-gateways',$Basic,$Standard,$Advance,$duration),
-    'logistic' => getPackageFeature('logistic',$Basic,$Standard,$Advance,$duration),
-    'fleet-tracking' => getPackageFeature('fleet-tracking',$Basic,$Standard,$Advance,$duration),
-    'visitor-analytics' => getPackageFeature('visitor-analytics',$Basic,$Standard,$Advance,$duration),
-    'sell-unlimited-products' => getPackageFeature('sell-unlimited-products',$Basic,$Standard,$Advance,$duration)
+    getPackageFeature('social-media-posts',$Basic,$Standard,$Advance,$duration),
+    getPackageFeature('stories',$Basic,$Standard,$Advance,$duration),
+    getPackageFeature('zash',$Basic,$Standard,$Advance,$duration),
+    getPackageFeature('events',$Basic,$Standard,$Advance,$duration),
+    getPackageFeature('groups',$Basic,$Standard,$Advance,$duration),
+    getPackageFeature('channels',$Basic,$Standard,$Advance,$duration),
+    getPackageFeature('chat',$Basic,$Standard,$Advance,$duration),
+    getPackageFeature('payment-gateways',$Basic,$Standard,$Advance,$duration),
+    getPackageFeature('logistic',$Basic,$Standard,$Advance,$duration),
+    getPackageFeature('fleet-tracking',$Basic,$Standard,$Advance,$duration),
+    getPackageFeature('visitor-analytics',$Basic,$Standard,$Advance,$duration),
+    getPackageFeature('sell-unlimited-products',$Basic,$Standard,$Advance,$duration)
   ];
 }
 

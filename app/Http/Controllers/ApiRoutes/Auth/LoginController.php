@@ -43,7 +43,7 @@ class LoginController extends BaseController
 						        'client_preferencs' => $this->client_preferencs
 						      ]; 
 			            }else{
-			                Auth::logout(); 
+			                
 			                $status = ['status' => 2,'message' => 'You are unauthorized user.'];
 			            }
             }else{

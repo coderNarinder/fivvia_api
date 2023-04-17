@@ -257,6 +257,11 @@ class Product extends Model{
     {
       return self::where('sku',$sku)->first();
     }
+
+     public function country()
+    {
+      return $this->belongsTo('App\Models\Country');
+    }
     public function getProductByCategory($category_id)
     {
       return self::where('category_id',$category_id)->get();

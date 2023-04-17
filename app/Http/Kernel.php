@@ -72,7 +72,7 @@ class Kernel extends HttpKernel
         'database' => \App\Http\Middleware\DatabaseDynamic::class,
         'dbCheck'    => \App\Http\Middleware\DbChooserApi::class,
         'AppAuth'    =>\App\Http\Middleware\AppAuth::class,
-        // 'checkAuth'    =>\App\Http\Middleware\CheckAuth::class,
+        'Cors'    =>\App\Http\Middleware\Cors::class,
         'domain' => \App\Http\Middleware\CustomDomain::class,
         'domainAdmin' => \App\Http\Middleware\CustomDomainAdmin::class,
         'subdomain' => \App\Http\Middleware\SubdomainMiddleware::class,
@@ -87,5 +87,6 @@ class Kernel extends HttpKernel
         'IsAdminDomainAuth' => \App\Http\Middleware\IsAdminDomainAuth::class,
         'BusinessAuth' => \App\Http\Middleware\BusinessAuth::class,
         'CheckBusinessSteps' => \App\Http\Middleware\CheckBusinessSteps::class,
+        'ApiAdminAuth' => \App\Http\Middleware\ApiAdminAuth::class,
     ];
 }

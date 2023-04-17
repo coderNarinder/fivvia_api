@@ -129,12 +129,43 @@ public function getCustomization($value='')
 
 public function getPaymentOptions($value='')
 {
-    $payment_options = \App\Models\PaymentOption::where('client_id',$this->client_id)->get();
+        $payment_options = \App\Models\PaymentOption::where('client_id',$this->client_id)->get();
          return response()->json([
              'data' => [
                  'listing' => $payment_options,
              ]
          ]);
+}
+
+
+
+public function getSettings($value='')
+{
+ 
+     return response()->json([
+         'data' => [
+             'client_preferencs' => $this->client_preferencs,
+             'client_head' => $this->client_head,
+             // 'languages' => $this->languages,
+             'logo'=> $this->client_head->logo['image_path']
+         ]
+     ]);
+}
+
+
+
+public function gettingPaymentOptions($value='')
+{
+        $payment_options = \App\Models\PaymentOption::where('client_id',$this->client_id)->pluck('parent')->toArray();
+        $c= \App\Models\ClientPreference::where('client_id',$this->client_id)->first();
+        $c->payment_options = json_encode($payment_options);
+        $c->save();
+     return response()->json([
+         'data' => [
+             'client_preferencs' => $this->client_preferencs,
+             'client_head' => $this->client_head,
+         ]
+     ]);
 }
 
 

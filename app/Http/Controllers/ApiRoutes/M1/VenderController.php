@@ -19,7 +19,21 @@ class VenderController extends BaseController
   {
            $skip = !empty($request->skip) ? $request->skip : 0;
           $limit = !empty($request->limit) ? $request->limit : 20;
-          $u = $users = Vendor::select(['id','name','slug', 'status','desc','address','logo'])->where('client_id',$this->client_id);
+          $u = $users = Vendor::select(['id','name','slug', 'status','desc','address','logo','emp_id','country_id','city_id','state_id'])
+          ->where(function($t) use($request){
+             if(!empty($request->state_id)){
+                $t->where('state_id',$request->state_id);
+             }
+             if(!empty($request->city_id)){
+                $t->where('city_id',$request->city_id);
+             }
+             if(!empty($request->country_id)){
+                $t->where('country_id',$request->country_id);
+             }
+             if(!empty($request->name)){
+                $t->where('name','LIKE',$request->name.'%');
+             }
+          })->where('client_id',$this->client_id);
            $a = $b = $p = $users;
            $approved = \DB::table('vendors')->select(['id','name','slug', 'status','desc','address','logo'])
            ->where('client_id',$this->client_id)->where('status',1)->count();
@@ -71,16 +85,24 @@ class VenderController extends BaseController
         $vendor->pincode = $request->pincode;
         $vendor->desc = $request->description;
         $vendor->name = $request->name;
+        $vendor->address = $request->address;
+        $vendor->latitude = $request->latitude;
+        $vendor->longitude = $request->longitude;
         $vendor->status = 0;
         $vendor->city_id = $request->city_id;
         $vendor->state_id = $request->state_id;
         $vendor->country_id = $request->country_id;
         $vendor->client_id = $this->client_id;
         $vendor->slug = Str::slug($request->name, "-");
+
+       
         if(Vendor::where('slug',$vendor->slug)->count() > 0){
           $vendor->slug = Str::slug($request->name, "-").rand(10,100);
         }
+
          if($vendor->save()){
+             $emp_id = $this->businessID;
+             $vendor->createID($emp_id,1);
             $data = ['message'=> 'Vendor saved successfully!','status'=> 1];
          }else{
            $data = ['message'=> 'Something wrong!','status'=> 0];
@@ -123,6 +145,8 @@ class VenderController extends BaseController
         $vendor->state_id = $request->state_id;
         $vendor->country_id = $request->country_id;  
         if($vendor->save()){
+             
+            
           $data = ['message'=> 'Vendor updated successfully!','status'=> 1];
         }else{
          $data = ['message'=> 'Something wrong!','status'=> 0];
@@ -249,6 +273,28 @@ public function vendorCategories(Request $request,$slug)
           ]
         ];
        
+
+     return response()->json($data);
+}
+
+#------------------------------------------------------------------------------------------------
+# getVendors 
+#------------------------------------------------------------------------------------------------
+
+
+
+public function statusVendor(Request $request)
+{
+    
+        $v = Vendor::where('slug', $request->slug)->where('client_id',$this->client_id);
+        if($v->count() == 1){
+          $vendor = $v->first();
+          $vendor->status = $request->status;
+          $vendor->save();
+          $data = ['message'=> 'Vendor status changed successfully!','status'=> 1];
+        }else{
+          $data = ['message'=> 'Something wrong!','status'=> 0];
+        }
 
      return response()->json($data);
 }

@@ -10,7 +10,7 @@ class ClientBusinessType extends Model
     use HasFactory;
 
 
-        public function businessType()
+    public function businessType()
     {
       return $this->belongsTo('App\Models\BusinessType','business_type_id');
     }

@@ -18,8 +18,17 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 });
 
  
+ require_once "api_routes/m1/api.php";
+ 
 
-require_once "api_routes/m1/api.php";
+Route::group(['prefix' => 'business'], function () {
+    require_once "api_routes/business/api.php";
+});
+
+
+ require_once "api_routes/admin/api.php";
+ 
+
 $prefix = 'v1';
 require_once $prefix."/auth.php";
 require_once $prefix."/guest.php";

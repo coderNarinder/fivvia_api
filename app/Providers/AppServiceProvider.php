@@ -40,7 +40,9 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot(Request $request){
 
-       
+        if(config('app.env') != 'local') {
+            \URL::forceScheme('https');
+        }
        $user = \App\Models\User::find(1);
   
 
@@ -50,21 +52,21 @@ class AppServiceProvider extends ServiceProvider
 
 
         //Redis::flushDB();
-        if(config('app.env') != 'local') {
-            \URL::forceScheme('https');
-        }
-        Builder::defaultStringLength(191);
-        Paginator::useBootstrap();
-        $domain = url('/');
-        $domain = str_replace(array('http://', '.test.com/login'), '', $domain);
+//         if(config('app.env') != 'local') {
+//             \URL::forceScheme('https');
+//         }
+//         Builder::defaultStringLength(191);
+//         Paginator::useBootstrap();
+//         $domain = url('/');
+//         $domain = str_replace(array('http://', '.test.com/login'), '', $domain);
       
-// dd(1);
-        $currentURL = url()->current();
-        $current_domain_url = getDomainName();
+// // dd(1);
+//         $currentURL = url()->current();
+//         $current_domain_url = getDomainName();
     
-       if(config('app.backend') != $current_domain_url && config('app.business') != $current_domain_url && config('app.API_DOMAIN') != $current_domain_url){
-         $this->checkClientDomain($request);
-       }
+//        if(config('app.backend') != $current_domain_url && config('app.business') != $current_domain_url && config('app.API_DOMAIN') != $current_domain_url){
+//          $this->checkClientDomain($request);
+//        }
      }
     }
 

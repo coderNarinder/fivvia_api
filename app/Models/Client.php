@@ -39,6 +39,12 @@ class Client extends Authenticatable
       return $this->hasOne('App\Models\ClientPreference','client_code','code');
     }
 
+
+    public function businessTypes()
+    {
+      return $this->hasMany('App\Models\Business\ClientBusinessType','client_id','id');
+    }
+
     public function timezone_data()
     {
       return $this->belongsTo('App\Models\Timezone','timezone','timezone');

@@ -55,6 +55,54 @@ class CommonController extends Controller
 #-------------------------------------------------------------------------------------------------------------
    public function getPayments(Request $request)
    {
+       $countries =  \App\Models\PaymentOption::where('client_id','0')
+       ->orderBy('title','ASC')
+       ->get();
+       $data =[
+         'message' => 'Payments loaded successfully',
+         'data' => [
+           'listing' => $countries
+         ]
+
+       ];
+       return response()->json($data);
+   }
+
+
+
+#--------------------------------------------------------------------------------------------------------------------------------------------------------------
+#  UPLOAD FILE FUNCTION
+#--------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+public function uploadImage(Request $request)
+{ 
+   if ($request->hasFile('file')) {
+       $url = uploadFileWithAjax23($request->folder_path,$request->file('file'));
+       $response = [
+         'status' => 0,
+         'message' => 'upload successfully',
+          'data' => [
+             'link' => url($url)
+       ]
+       ];
+     }else{
+        $response = [
+         'status' => 0,
+         'message' => 'Please choose file',
+         
+       ];
+     }
+     return response()->json($response);
+}
+
+
+
+
+#-------------------------------------------------------------------------------------------------------------
+#  Getting Countries
+#-------------------------------------------------------------------------------------------------------------
+   public function getBanners(Request $request)
+   {
    	   $countries =  \App\Models\PaymentOption::where('client_id','0')
        ->orderBy('title','ASC')
        ->get();

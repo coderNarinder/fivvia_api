@@ -200,6 +200,17 @@ class Vendor extends Model{
  }
 
 
+
+public function createID($id,$number)
+{
+    $emp_id = $id.'E'.$number;
+    if(\App\Models\Vendor::where('client_id',$this->client_id)->where('emp_id',$emp_id)->where('id','!=',$this->id)->count() > 0){
+        $this->createID($id,($number+1));
+    }else{
+         $this->emp_id = $emp_id;
+         $this->save();
+    }
+}
  
 
 }
