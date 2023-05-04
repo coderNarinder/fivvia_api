@@ -125,6 +125,7 @@ class RegisterController extends BaseController
    {
 
    	  $u = $request->user();
+      $user = 0;
       if(!empty($request->value) && $request->type == 'email'){
         $user = Client::where('email',$request->value)->where('id','!=',$u->client_id)->count();
         
@@ -367,7 +368,7 @@ public function getPaymentOptions(Request $request)
   public function logisticsSaved(Request $request)
   {
   	     $user = $request->user();
-        $client = Client::findOrFail($user->client_id);
+        $client = Client::find($user->client_id);
         $shipping_options = !empty($request->logistics) ? (array)$request->logistics : [];
         foreach($shipping_options as $type){
              $payment_opts = \App\Models\ShippingOption::where('client_id',$client->id)->where('code',$type);
@@ -402,30 +403,30 @@ public function getPaymentOptions(Request $request)
 
   public function logistics(Request $request)
   {
-        $user = $request->user();
+        
+           $user = $request->user();
+
         $client = Client::findOrFail($user->client_id);
         $business_types = json_decode($client->business_types);
         $logistics = \App\Models\BusinessType::whereIn('id',$business_types)->where('logistics',1)->count();
+       
 
          if($logistics == 0){
            $client->completed_steps = 6;
            $client->save();
-            return redirect()->route('business.domains');
-         }
-
-
-         $paymentOptions = \App\Models\CountryMetaData::where('country_id',$client->country_id)
-                                                      ->where('type','shipping_options');
-         $options = $paymentOptions->count() > 0 ? json_decode($paymentOptions->first()->meta_values) : [];
-         $shipping_options = \App\Models\ShippingType::whereIn('id',$options)->get();
-       
-          $selected = \App\Models\ShippingOption::where('client_id',$user->client_id)->pluck('code')->toArray();
-           $res = [ 
-          	'logistics' => $shipping_options,
-          	'hasIt' => $logistics,
-          	'selected'=> $selected
-           ];
-          
+            
+         } 
+                  $paymentOptions = \App\Models\CountryMetaData::where('country_id',$client->country_id)
+                                                               ->where('type','shipping_options');
+                  $options = $paymentOptions->count() > 0 ? json_decode($paymentOptions->first()->meta_values) : [];
+                  $shipping_options = \App\Models\ShippingType::whereIn('id',$options)->get();
+                  $selected = \App\Models\ShippingOption::where('client_id',$user->client_id)->pluck('code')->toArray();
+                  $res = [ 
+                    'logistics' => $shipping_options,
+                    'hasIt' => $logistics,
+                    'selected'=> $selected
+                  ];
+         
         return response()->json($res);
   }
 

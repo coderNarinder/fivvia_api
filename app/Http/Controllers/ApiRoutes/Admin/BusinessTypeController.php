@@ -30,18 +30,17 @@ class BusinessTypeController extends BaseController
     	    $skip = !empty($request->skip) ? $request->skip : 0;
     	    $limit = !empty($request->limit) ? $request->limit : 20;
     	    $language_id = !empty($request->language_id) ? $request->language_id : 1;
-            
             $business_types = $cate = BusinessType::with('category')->where('parent',0)
-                                                      ->where(function($t) use($request){
-                                                      	if(!empty($request->category_id)){
-                                                      		$t->where('business_category_id',$request->category_id);
-                                                      	}
-                                                      	if(!empty($request->name)){
-                                                      		$t->where('title',$request->name);
-                                                      	}
-                                                      })
-										              ->where('language_id',$language_id)
-										              ->orderBy('title','ASC');
+                                          ->where(function($t) use($request){
+                                          	if(!empty($request->category_id) && $request->category_id > 0){
+                                          		$t->where('business_category_id',$request->category_id);
+                                          	}
+                                          	if(!empty($request->name)){
+                                          		$t->where('title',$request->name);
+                                          	}
+                                          })
+							              ->where('language_id',$language_id)
+							              ->orderBy('title','ASC');
             $response = [
 		        'status' => 1,
 		        'count' => $cate->count(),
@@ -59,7 +58,7 @@ class BusinessTypeController extends BaseController
     # BUSINESS TYPES
     #-------------------------------------------------------------------------------------------------
 
-    public function updateBusinessCategory(Request $request,$id){ 
+    public function edit(Request $request,$id){ 
     	    $language_id = !empty($request->language_id) ? $request->language_id : 1;
             $category = BusinessType::where('id',$id)->first();
             $cate = BusinessType::where('parent',$id)->where('language_id',$language_id);
@@ -85,7 +84,7 @@ class BusinessTypeController extends BaseController
             $response = [
 		        'status' => 1,
 		        'count' => $cate->count(),
-		        'message' => 'business type loaded successfully',
+		        'message' => 'Business type loaded successfully',
 		        'data' => [
 		           'listing' => $category
 			    ]
@@ -105,7 +104,7 @@ class BusinessTypeController extends BaseController
             $business_types = BusinessType::where('business_category_id',$request->category_id) ->where('title',$request->name) ->where('language_id',$language_id)->count();
 		     
 		    if(empty($request->name)) {
-		    	$status = ['status' => 0, 'message' => 'Please add type!'];
+		    	$status = ['status' => 0, 'message' => 'Please add business type!'];
 		    }elseif($business_types > 0) {
 		    	$status = ['status' => 0, 'message' => 'This business type is already exists!'];
 		    }else{
@@ -128,7 +127,7 @@ class BusinessTypeController extends BaseController
     # BUSINESS TYPES
     #-------------------------------------------------------------------------------------------------
 
-    public function businessCategoryUpdate(Request $request,$id){
+    public function update(Request $request,$id){
             $language_id = !empty($request->language_id) ? $request->language_id : 1;
             $business_types = BusinessType::where('business_category_id',$request->category_id)
                                           ->where('title',$request->name)
@@ -141,9 +140,9 @@ class BusinessTypeController extends BaseController
                                           })->where('id','!=',$id)->where('language_id',$language_id)->count();
 		     
 		    if(empty($request->name)) {
-		    	$status = ['status' => 0, 'message' => 'Please add category name!'];
+		    	$status = ['status' => 0, 'message' => 'Please add Business type!'];
 		    }elseif($business_types > 0) {
-		    	$status = ['status' => 0, 'message' => 'This category is already exists!'];
+		    	$status = ['status' => 0, 'message' => 'This Business type is already exists!'];
 		    }else{
 
 		    	    $category = BusinessType::where('id',$id)->first();
@@ -186,7 +185,7 @@ class BusinessTypeController extends BaseController
                  	   $ct->status = $request->status; 
 		               $ct->save();
 	                } 
-                    $status = ['status' => 1, 'message' => 'The category updated successfully!'];
+                    $status = ['status' => 1, 'message' => 'The Business type updated successfully!'];
 		    }
 		     return response()->json($status);
     }

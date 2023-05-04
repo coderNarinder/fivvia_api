@@ -82,7 +82,7 @@ class BaseController extends Controller
 
    public function businessCategories()
    {
-       return BusinessCategory::where('parent',0)
+       return BusinessCategory::where('parent',0)->where('status',1)
        ->orderBy('sorting','ASC')->get();
    }
 

@@ -22,7 +22,7 @@ class LoginController extends BaseController
 
 	public function getLoggedIn(Request $request)
 	{
-		 dd($request->all());
+	 
         $v = \Validator::make($request->all(),[
 	        'email'           => 'required|max:255|email',
             'password'        => 'required',
@@ -85,7 +85,10 @@ class LoginController extends BaseController
      }
      $token = $request->fivvia_token;
      // $token = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzY29wZSI6IlVTRVIiLCJfaWQiOiI2NDEyYjQwNGYyMWY5MTRhODI3ODg4ODkiLCJ0aW1lIjoiMjAyMy0wMy0xNlQwNjoxNTo0My4xMTVaIiwiaWF0IjoxNjc4OTQ3MzQzfQ.CckZtwpC8UZCesBqbgolRTz6gi7mp_OpmJ2kKVnm9jU';
+
      $result = (object)checkBusinessCurl($token);
+
+
      if($result->statusCode == 200){
       $data= $result->data;
        $client = Client::where('fivvia_business_id',$data->_id);
@@ -93,18 +96,20 @@ class LoginController extends BaseController
             $c = $client->first();
             $u = User::where('client_id',$c->id)->first();
             if($u->is_superadmin == 1 || $u->is_admin == 1){
-                if(Auth::attempt(['email' => $u->email, 'password' => $u->email])){
+             Auth::login($u);
+           
+               if (Auth::check()) {
                       $user = Auth::user();
-				      $token = $user->createToken("API TOKEN")->plainTextToken;
-				      $status = [
-				      	'status' => 1,
-				        'accessToken' => $token,
-				        'data' => $user,
-				        'client_head'=> $c,
-				        'client_preferencs' => $this->preference($c->id)
-				      ];
+        				      $token = $user->createToken("API TOKEN")->plainTextToken;
+        				      $status = [
+        				      	'status' => 1,
+        				        'accessToken' => $token,
+        				        'data' => $user,
+        				        'client_head'=> $c,
+        				        'client_preferencs' => $this->preference($c->id)
+        				      ];
             	 }else{
-                     $status = ['status' => 2,'message' => 'You are unauthorized user.'];
+                     $status = ['status' => 2,'message' => 'You are unauthorized users.'];
             	 }
                    
             }else{
@@ -129,7 +134,7 @@ public function checkBusinessLogin($request,$data)
              $c = new Client;
              $c->name = $data->fullName;
              $c->email = $data->email;
-             $c->password = \Hash::make($data->email);
+           
              $c->dial_code = $phone[0];
              $c->phone_number = $phone[1];
              $c->fivvia_business_id = $data->_id;
@@ -137,7 +142,7 @@ public function checkBusinessLogin($request,$data)
 
              $u = new User;
              $u->email = $data->email;
-             $u->password = \Hash::make($data->email);
+             $u->password = \Hash::make($data->_id);
              $u->name = $c->name;
              $u->phone_number = $c->phone_number;
              $u->code = $c->id;
@@ -148,22 +153,23 @@ public function checkBusinessLogin($request,$data)
              $u->save();
 
 
-             $Client = Client::find($c->id);
-             $Client->code = $c->id;
-             $Client->business_id = 'FB'.$Client->id;
+             $Client = Client::find($c->id); 
+             $Client->business_id = 'FB'.$c->id;
+             $Client->password = \Hash::make($data->_id);
              $Client->user_id = $u->id;
              $Client->save(); 
-
-             if(Auth::attempt(['email' => $u->email, 'password' => $u->email])){
-                  $user = Auth::user();
-			      $token = $user->createToken("API TOKEN")->plainTextToken;
-			      $status = [
-			      	'status' => 1,
-			        'accessToken' => $token,
-			        'data' => $user,
-			        'client_head'=> $Client,
-				    'client_preferencs' => $this->preference($Client->id)
-			      ];
+                Auth::login($u);
+           
+               if (Auth::check()) {
+                    $user = Auth::user();
+        			      $token = $user->createToken("API TOKEN")->plainTextToken;
+        			      $status = [
+        			      	'status' => 1,
+        			        'accessToken' => $token,
+        			        'data' => $user,
+        			        'client_head'=> $Client,
+        				      'client_preferencs' => $this->preference($Client->id)
+        			      ];
         	 }else{
                  $status = ['status' => 2,'message' => 'You are unauthorized user.'];
         	 }
@@ -214,6 +220,7 @@ public function getBusinessTypes(Request $request)
        $business_categories = BusinessType::where('parent',0)
                                        ->whereIn('client_id',$user_ids)
                                        ->where('business_category_id',$client->business_category_id)
+                                       ->where('status',1)
                                        ->orderBy('title','ASC')
                                        ->get();
      

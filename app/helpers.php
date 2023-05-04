@@ -146,27 +146,27 @@ function getTemplates(){
  return [
     'template-1' => [
        'title' => 'Basic Design',
-       'image' => 'fivvia_business/templates/1.png',
+       'image' => url('fivvia_business/templates/1.png'),
        'tagline' => 'You can advertise your business here'
     ],
     'template-2' => [
        'title' => 'Template 1',
-       'image' =>  'fivvia_business/templates/2.png',
+       'image' =>  url('fivvia_business/templates/2.png'),
        'tagline' => 'You can advertise your business here'
     ],
     'template-3' => [
        'title' => 'Template 2',
-       'image' => 'fivvia_business/templates/3.png',
+       'image' => url('fivvia_business/templates/3.png'),
        'tagline' => 'You can advertise your business here'
     ],
     'template-4' => [
        'title' => 'Template 3',
-       'image' =>  'fivvia_business/templates/4.png',
+       'image' =>  url('fivvia_business/templates/4.png'),
        'tagline' => 'You can advertise your business here'
     ],
     'template-5' => [
        'title' => 'Template 4',
-       'image' => 'fivvia_business/templates/5.png',
+       'image' => url('fivvia_business/templates/5.png'),
        'tagline' => 'You can advertise your business here'
     ]
 ];
@@ -192,7 +192,7 @@ function getPackageFeatures(){
  return [
     'social-media-posts',
     'stories',
-    'zash',
+    'clips',
     'events',
     'groups',
     'channels',
@@ -212,7 +212,7 @@ function getPackageFeaturesAll($duration){
  return [
     getPackageFeature('social-media-posts',$Basic,$Standard,$Advance,$duration),
     getPackageFeature('stories',$Basic,$Standard,$Advance,$duration),
-    getPackageFeature('zash',$Basic,$Standard,$Advance,$duration),
+    getPackageFeature('clips',$Basic,$Standard,$Advance,$duration),
     getPackageFeature('events',$Basic,$Standard,$Advance,$duration),
     getPackageFeature('groups',$Basic,$Standard,$Advance,$duration),
     getPackageFeature('channels',$Basic,$Standard,$Advance,$duration),

@@ -10,8 +10,16 @@ Route::get('/check/login', 'ApiRoutes\Admin\LoginController@loginDetails')->name
 Route::get('/clients', 'ApiRoutes\Admin\ClientController@index')->name('api.admin.clients');
 Route::get('/clients/{id}/details', 'ApiRoutes\Admin\ClientController@clientDetails')->name('api.admin.clientDetails');
 Route::post('/clients/{id}/details', 'ApiRoutes\Admin\ClientController@updateClient')->name('api.admin.clientDetails');
-Route::get('/get-business-types', 'ApiRoutes\Admin\ClientController@businessTypes')->name('api.admin.businessTypes');
+// Route::get('/get-business-types', 'ApiRoutes\Admin\BusinessTypeController@list')->name('api.admin.businessTypes');
       
+#---------------------------------------------------------------------------------------------------------------------------------
+# Business Categories
+#---------------------------------------------------------------------------------------------------------------------------------
+Route::get('/get-business-types', 'ApiRoutes\Admin\BusinessTypeController@list')->name('api.admin.businessCategories');
+Route::post('/saveBusinessType', 'ApiRoutes\Admin\BusinessTypeController@store')->name('api.admin.businessTypeStore');
+Route::get('/updateBusinessType/{id}', 'ApiRoutes\Admin\BusinessTypeController@edit')->name('api.admin.updateBusinessType');
+Route::post('/updateBusinessType/{id}', 'ApiRoutes\Admin\BusinessTypeController@update')->name('api.admin.updateBusinessType');
+
 #---------------------------------------------------------------------------------------------------------------------------------
 # Business Categories
 #---------------------------------------------------------------------------------------------------------------------------------
@@ -84,6 +92,15 @@ Route::get('/get-payments', 'ApiRoutes\Admin\PaymentController@list')->name('api
 Route::post('/savePayment', 'ApiRoutes\Admin\PaymentController@store')->name('api.admin.PaymentStore');
 Route::get('/updatePayment/{id}', 'ApiRoutes\Admin\PaymentController@edit')->name('api.admin.updatePayment');
 Route::post('/updatePayment/{id}', 'ApiRoutes\Admin\PaymentController@update')->name('api.admin.updatePayment');
+
+#---------------------------------------------------------------------------------------------------------------------------------
+# Business Categories
+#---------------------------------------------------------------------------------------------------------------------------------
+Route::get('/get-packages', 'ApiRoutes\Admin\PackageController@list')->name('api.admin.Package');
+Route::get('/get-getFeatures', 'ApiRoutes\Admin\PackageController@getFeatures')->name('api.admin.getFeatures');
+Route::post('/savePackage', 'ApiRoutes\Admin\PackageController@store')->name('api.admin.PackageStore');
+Route::get('/updatePackage/{id}', 'ApiRoutes\Admin\PackageController@edit')->name('api.admin.updatePackage');
+Route::post('/updatePackage/{id}', 'ApiRoutes\Admin\PackageController@update')->name('api.admin.updatePackage');
 
 
   });

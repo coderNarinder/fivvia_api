@@ -21,7 +21,12 @@ class ClientController extends BaseController
  
     public function index(Request $request){
             $clients = Client::with('businessCategory','businessTypes','businessTypes.businessType')
-                             ->where('is_deleted', 0)
+                             ->whereHas('businessCategory')
+                             ->whereHas('businessTypes', function($r){
+                             	 $r->whereHas('businessType');
+                             }) 
+                             
+                             ->where('is_deleted',0)
                              ->where(function($t) use($request){
                              	if(!empty($request->category_id)){
                              		$t->where('business_category_id',$request->category_id);
@@ -52,9 +57,11 @@ class ClientController extends BaseController
                              ->count();
 
              $incomplete_account = Client::with('businessCategory','businessTypes','businessTypes.businessType')
+                             ->whereHas('businessCategory')
+                             ->whereHas('businessTypes') 
                              ->where('is_deleted', 0)
                              ->where('completed_steps','<',12)
-                              ->where('completed_steps','>',7)
+                             ->where('completed_steps','>',7)
                              ->orderBy('created_at', 'DESC')
                              ->count();
 
